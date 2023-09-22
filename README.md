@@ -1,2 +1,2 @@
 # Leetcode-Hub
-collections of LeetCode problems
+Collections of LeetCode problems
