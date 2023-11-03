@@ -1,4 +1,4 @@
-package leetcode.Leetcode1793;
+package Leetcode1793;
 
 /**
  * leetcode1793

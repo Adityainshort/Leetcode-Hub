@@ -1,4 +1,4 @@
-package leetcode.Leetcode0343;
+package Leetcode0343;
 
 public class leetcode343 {
     public static int integerBreak(int n) { 

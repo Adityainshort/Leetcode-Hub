@@ -1,4 +1,4 @@
-package leetcode.Leetcode1269;
+package Leetcode1269;
 
 public class leetcode1269 {
     public static int numWays(int steps, int arrlen) {

@@ -1,3 +1,5 @@
+package Leetcode0125;
+
 class leetcode0125 {
     public static  boolean isPalindrome(String s) {
         String str = "";
