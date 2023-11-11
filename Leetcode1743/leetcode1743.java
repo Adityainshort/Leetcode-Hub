@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+
 public class leetcode1743 {
 
     static int first, last, current;
