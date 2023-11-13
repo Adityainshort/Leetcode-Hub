@@ -9,7 +9,6 @@ class Solution {
             if ("aeiouAEIOU".contains(String.valueOf(s.charAt(i)))) {
                 j++;
             }
-            
         }
         char[] arr = new char[j];
         j=0;
