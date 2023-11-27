@@ -1,31 +1,21 @@
-package Leetcode2947;
-
 class Solution {
-    public int findMinimumOperations(String s1, String s2, String s3) {
-        if(s1.charAt(0)==s2.charAt(0) && s1.charAt(0)==s3.charAt(0) ){
-            
-            int a = Math.min(Math.min( s1.length(), s2.length()), s3.length() );
-        int b = Math.max(Math.max( s1.length(), s2.length()), s3.length() );
-        
-        
-        int i = 0 ;
-        
-        while (i < a && s1.charAt(i) == s2.charAt(i) && s2.charAt(i) == s3.charAt(i)) {
-            
-            
-            i++;
+    public int beautifulSubstrings(String s, int k) {
+        if(s.compareTo("")==0){return 0;}
+        int count=0;
+        for(int i =0;i<s.length();i++){
+            int v=0;
+            int c=0;
+            for(int j= i ;j<s.length();j++){
+                char ch=s.charAt(j);
+                if(isVowel(ch)){v++;}
+                else {c++;}
+                if(v==c && (v*c)%k==0){count++;}
+            }
         }
-        if(i==b)return 0 ;
-        
-        int ans = s1.length() + s2.length() + s3.length() - 3*i ;
-        
-        return ans ;
-            
-        }
-        else{
-            return -1 ;
-        }
-        
-        
+        return count;
+    }
+    public static boolean isVowel(char ch){
+        if(ch=='a' || ch =='e' || ch=='i' || ch=='o' || ch=='u'){return true;}
+        return false;
     }
 }
