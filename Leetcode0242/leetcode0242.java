@@ -8,7 +8,6 @@ class Solution {
             return false;
         }
 
-
         char[] sa = s.toCharArray();
         char[] ta = t.toCharArray();
         Arrays.sort(sa);
