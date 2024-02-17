@@ -1,7 +1,7 @@
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 class TreeNode {
     int val;
@@ -16,37 +16,59 @@ class TreeNode {
     }
 }
 
+
 class Solution {
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
 
         if(root == null){
             return result ;
         }
 
-        Queue<TreeNode> queue  = new LinkedList<>();
+        Deque<TreeNode> queue  = new LinkedList<>();
         queue.offer(root);
+        Boolean reverse = false ;
 
         while(!queue.isEmpty()){
+
             List<Integer> currlevel = new ArrayList<>();
             int levelsize = queue.size() ;
 
-            for(int i = 0 ; i < levelsize ; i++){
-                TreeNode current = queue.poll();
+            if(!reverse){
+                for(int i = 0 ; i < levelsize ; i++){
+                    TreeNode current = queue.pollFirst();
 
-                if(current.left!=null){
-                    queue.offer(current.left);
-                }
-                if(current.right!=null){
-                    queue.offer(current.right);
+                    if(current.left!=null){
+                        queue.addLast(current.left);
+                    }
+                    if(current.right!=null){
+                        queue.addLast(current.right);
+                    }
+
+                    currlevel.add(current.val);
                 }
 
-                currlevel.add(current.val);
+            }else{
+                for(int i = 0 ; i < levelsize ; i++){
+                    TreeNode current = queue.pollLast();
+
+                    if(current.right!=null){
+                        queue.addFirst(current.right);
+                    }
+                    if(current.left!=null){
+                        queue.addFirst(current.left);
+                    }
+
+                    currlevel.add(current.val);
+                }
+                    
             }
+            reverse=!reverse;
 
-            result.add(0,currlevel);
+            result.add(currlevel);
+            
         }
         return result ;
-    }    
-    
+    }
 }
+
